@@ -1,15 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QLabel>
+#include <QMainWindow>
 #include "memory_widget.h"
 #include "./include/field_implementation.h"
 
 namespace Ui {
 class MainWindow;
 }
-
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -33,6 +32,8 @@ private:
     QLabel *_points;
     Memory_Widget *qmemory;
     Game_Interface *game;
+
 };
+
 
 #endif // MAINWINDOW_H

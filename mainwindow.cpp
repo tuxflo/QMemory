@@ -9,13 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     qmemory = 0;
     game =0;
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 void MainWindow::on_pushButton_2_clicked()
 {
     QApplication::quit();

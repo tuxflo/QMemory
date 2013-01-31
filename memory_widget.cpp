@@ -89,7 +89,7 @@ void Memory_Widget::game_over()
 
 void Memory_Widget::set_players()
 {
-    QMap<QString, QColor> players_map();
+    QMap<QString, QColor> players_map;
     for(int i=0; i < _game->get_num_of_players(); i++)
     {
         ;

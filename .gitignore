@@ -1,3 +1,8 @@
 *.o
+<<<<<<< HEAD
 *.autosave
 QMemory_GUI
+=======
+*.user
+moc_*.*
+>>>>>>> e6b082d69d14403d8c7aa618ceea2f8a2e29491f
