@@ -1,49 +1,73 @@
 #ifndef MEMORY_CARD_H
 #define MEMORY_CARD_H
 
+#include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
-#include <QGraphicsLayoutItem>
+#include <QGraphicsSceneHoverEvent>
 #include <QGraphicsSceneMouseEvent>
+#include <QPropertyAnimation>
+#include <QGraphicsDropShadowEffect>
+#include <QGraphicsLayoutItem>
 #include <QPainter>
-#include <QDebug>
-#include <string>
 
-
-//Class for a single Picture
-class memory_card : public QObject, public QGraphicsPixmapItem, public QGraphicsLayoutItem
+class MemoryCard : public QGraphicsObject, public QGraphicsLayoutItem
 {
     Q_OBJECT
-    Q_PROPERTY(qreal rotatingAngleY READ rotationAngle WRITE setrotationAngleY)
-
+    Q_INTERFACES(QGraphicsLayoutItem)
+    Q_PROPERTY(qreal rotationAngle READ rotationAngle WRITE setRotationAngle)
 public:
-    explicit memory_card(const std::string& picture_path, QObject *parent=0);
-    ~memory_card();
-    QSizeF size();
-    void mirror_picture();
+    explicit MemoryCard(int row, int column, const std::string& picture_path, const std::string& cover_path , QObject *parent);
+    MemoryCard(QObject *parent=0);
+    ~MemoryCard();
+    int get_row();
+    int get_column();
+    void turn();
+    void turn_back();
+    QSize get_size();
+    void set_duration(int duration);
+    qreal rotationAngle() const;
+    QGraphicsDropShadowEffect *_shadow;
+
+
 
 protected:
-    QSizeF sizeHint(Qt::SizeHint which, const QSizeF &constraint) const;
-    void setGeometry(const QRectF &rect);
-    QRectF boundingRect();
-    void setrotationAngleY(qreal angle);
-    qreal rotationAngle() const;
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *event);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+
+
+    QSizeF sizeHint(Qt::SizeHint which, const QSizeF &constraint) const;
+    void setGeometry(const QRectF &rect);
 
 private:
-    QSizeF _size;
+    int _row;
+    int _column;
     QPixmap _picture;
-    qreal _rotationAngleY;
+    QPixmap _cover;
+    QPixmap *_pix;
+    QRectF boundingRect()const;
 
-    
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+
+    qreal _rotationAngle;
+    QPropertyAnimation *_picture_animation;
+    QPropertyAnimation *_cover_animation;
+
+    bool _turned;
+
+    int _duration;
+
 signals:
-    void clicked();
-    void hovered(QRectF);
-    void hover_leave();
-    
+    //Tells which card is selected
+    void selected_change(int, int, bool);
+    void clicked(int, int);
+
 public slots:
-    
+    void paint_cover();
+    void set_selected(bool selected);
+    void setRotationAngle(qreal angle);
+
+
 };
 
 #endif // MEMORY_CARD_H

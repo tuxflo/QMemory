@@ -5,7 +5,6 @@
 #include <QObject>
 
 
-
 class Memory_Widget;
 class Qmemory_second_turn : public QObject, public QMemory_State
 {
@@ -20,6 +19,7 @@ signals:
 
 public slots:
     void turn_back();
+    void delete_effect();
 };
 
 #endif // QMEMORY_SECOND_TURN_H

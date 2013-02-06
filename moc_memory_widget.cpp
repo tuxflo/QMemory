@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'memory_widget.h'
 **
-** Created: Thu Jan 24 18:19:28 2013
+** Created: Tue Feb 5 10:11:09 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_Memory_Widget[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,6 +37,8 @@ static const uint qt_meta_data_Memory_Widget[] = {
       66,   55,   14,   14, 0x08,
       90,   85,   14,   14, 0x08,
      109,   14,   14,   14, 0x08,
+     143,  123,   14,   14, 0x08,
+     174,   14,   14,   14, 0x08,
 
        0        // eod
 };
@@ -46,6 +48,8 @@ static const char qt_meta_stringdata_Memory_Widget[] = {
     "update_StatusBar_points(QString)\0"
     "row,column\0turn_card(int,int)\0rect\0"
     "hover_card(QRectF)\0hover_leave()\0"
+    "row,column,selected\0selection_change(int,int,bool)\0"
+    "game_over_animation()\0"
 };
 
 void Memory_Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -58,6 +62,8 @@ void Memory_Widget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 1: _t->turn_card((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 2: _t->hover_card((*reinterpret_cast< QRectF(*)>(_a[1]))); break;
         case 3: _t->hover_leave(); break;
+        case 4: _t->selection_change((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
+        case 5: _t->game_over_animation(); break;
         default: ;
         }
     }
@@ -97,9 +103,9 @@ int Memory_Widget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

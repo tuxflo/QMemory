@@ -40,7 +40,7 @@ void MainWindow::create_new_game()
         delete qmemory;
         delete game;
     }
-    game = new Field_Implementation(4, 4);
+    game = new Field_Implementation(2, 4);
     game->add_player("tuxflo");
     game->add_player("anne");
     game->set_picture_path("./Pictures/");

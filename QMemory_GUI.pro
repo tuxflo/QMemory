@@ -5,7 +5,6 @@
 #-------------------------------------------------
 
 QT       += core gui
-CONFIG         += qtestlib
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,10 +28,7 @@ SOURCES += main.cpp\
     qmemory_state.cpp \
     qmemory_first_turn.cpp \
     qmemory_second_turn.cpp \
-    mygridlayout.cpp \
-    doubleside_card.cpp \
-    memory_card.cpp \
-    mythread.cpp
+    memory_card.cpp
 
 HEADERS  += mainwindow.h \
     ../Memory_API/include/view_state.h \
@@ -49,10 +45,7 @@ HEADERS  += mainwindow.h \
     qmemory_state.h \
     qmemory_first_turn.h \
     qmemory_second_turn.h \
-    mygridlayout.h \
-    doubleside_card.h \
-    memory_card.h \
-    mythread.h
+    memory_card.h
 
 FORMS    += mainwindow.ui
 

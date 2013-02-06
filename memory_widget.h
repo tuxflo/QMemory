@@ -7,14 +7,16 @@
 #include <QHBoxLayout>
 #include <QGraphicsWidget>
 #include <QDialog>
+#include <QDebug>
+#include <QGraphicsGridLayout>
+#include <QTimer>
 #include "qmemory_first_turn.h"
 
 #include "./include/view.h"
 #include "./include/game_interface.h"
 #include "qmemory_first_turn.h"
 #include "qmemory_second_turn.h"
-#include "mygridlayout.h"
-#include "doubleside_card.h"
+#include "memory_card.h"
 
 class Memory_Widget : public QWidget, public View
 {
@@ -30,6 +32,7 @@ public:
     virtual void view_board();
     virtual void play();
     virtual void game_over();
+    bool eventFilter(QObject *object, QEvent *event);
 
 protected:
 
@@ -39,22 +42,22 @@ private:
     QGraphicsView *_view;
     QGraphicsScene *_scene;
 
-    Doubleside_Card ***_cards;
+    MemoryCard ***_cards;
 
     //The Graphicswidget is needed for the gridlayout
     QGraphicsWidget *_graphics_widget;
 
     Game_Interface *_game;
 
-    MyGridLayout _grid;
+    QGraphicsGridLayout _grid;
 
 
     //States
     Qmemory_first_turn _first_turn;
     Qmemory_second_turn _second_turn;
 
-    Doubleside_Card *_first_card;
-    Doubleside_Card *_second_card;
+    MemoryCard *_first_card;
+    MemoryCard *_second_card;
     bool _turnable;
 
     QGraphicsRectItem *_hover;
@@ -65,6 +68,10 @@ private slots:
     void turn_card(int row, int column);
     void hover_card(QRectF rect);
     void hover_leave();
+
+    void selection_change(int row, int column, bool selected);
+
+    void game_over_animation();
     
 };
 

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'memory_card.h'
 **
-** Created: Thu Jan 24 11:07:18 2013
+** Created: Mon Feb 4 21:08:12 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -18,88 +18,97 @@
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
-static const uint qt_meta_data_memory_card[] = {
+static const uint qt_meta_data_MemoryCard[] = {
 
  // content:
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
-       1,   29, // properties
+       5,   14, // methods
+       1,   39, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       3,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
-      13,   12,   12,   12, 0x05,
-      23,   12,   12,   12, 0x05,
-      39,   12,   12,   12, 0x05,
+      15,   12,   11,   11, 0x05,
+      47,   45,   11,   11, 0x05,
+
+ // slots: signature, parameters, type, tag, flags
+      64,   11,   11,   11, 0x0a,
+      87,   78,   11,   11, 0x0a,
+     112,  106,   11,   11, 0x0a,
 
  // properties: name, type, flags
-      59,   53, ((uint)QMetaType::QReal << 24) | 0x00095003,
+     142,  136, ((uint)QMetaType::QReal << 24) | 0x00095103,
 
        0        // eod
 };
 
-static const char qt_meta_stringdata_memory_card[] = {
-    "memory_card\0\0clicked()\0hovered(QRectF)\0"
-    "hover_leave()\0qreal\0rotatingAngleY\0"
+static const char qt_meta_stringdata_MemoryCard[] = {
+    "MemoryCard\0\0,,\0selected_change(int,int,bool)\0"
+    ",\0clicked(int,int)\0paint_cover()\0"
+    "selected\0set_selected(bool)\0angle\0"
+    "setRotationAngle(qreal)\0qreal\0"
+    "rotationAngle\0"
 };
 
-void memory_card::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
+void MemoryCard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         Q_ASSERT(staticMetaObject.cast(_o));
-        memory_card *_t = static_cast<memory_card *>(_o);
+        MemoryCard *_t = static_cast<MemoryCard *>(_o);
         switch (_id) {
-        case 0: _t->clicked(); break;
-        case 1: _t->hovered((*reinterpret_cast< QRectF(*)>(_a[1]))); break;
-        case 2: _t->hover_leave(); break;
+        case 0: _t->selected_change((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< bool(*)>(_a[3]))); break;
+        case 1: _t->clicked((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 2: _t->paint_cover(); break;
+        case 3: _t->set_selected((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 4: _t->setRotationAngle((*reinterpret_cast< qreal(*)>(_a[1]))); break;
         default: ;
         }
     }
 }
 
-const QMetaObjectExtraData memory_card::staticMetaObjectExtraData = {
+const QMetaObjectExtraData MemoryCard::staticMetaObjectExtraData = {
     0,  qt_static_metacall 
 };
 
-const QMetaObject memory_card::staticMetaObject = {
-    { &QObject::staticMetaObject, qt_meta_stringdata_memory_card,
-      qt_meta_data_memory_card, &staticMetaObjectExtraData }
+const QMetaObject MemoryCard::staticMetaObject = {
+    { &QGraphicsObject::staticMetaObject, qt_meta_stringdata_MemoryCard,
+      qt_meta_data_MemoryCard, &staticMetaObjectExtraData }
 };
 
 #ifdef Q_NO_DATA_RELOCATION
-const QMetaObject &memory_card::getStaticMetaObject() { return staticMetaObject; }
+const QMetaObject &MemoryCard::getStaticMetaObject() { return staticMetaObject; }
 #endif //Q_NO_DATA_RELOCATION
 
-const QMetaObject *memory_card::metaObject() const
+const QMetaObject *MemoryCard::metaObject() const
 {
     return QObject::d_ptr->metaObject ? QObject::d_ptr->metaObject : &staticMetaObject;
 }
 
-void *memory_card::qt_metacast(const char *_clname)
+void *MemoryCard::qt_metacast(const char *_clname)
 {
     if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_memory_card))
-        return static_cast<void*>(const_cast< memory_card*>(this));
-    if (!strcmp(_clname, "QGraphicsPixmapItem"))
-        return static_cast< QGraphicsPixmapItem*>(const_cast< memory_card*>(this));
+    if (!strcmp(_clname, qt_meta_stringdata_MemoryCard))
+        return static_cast<void*>(const_cast< MemoryCard*>(this));
     if (!strcmp(_clname, "QGraphicsLayoutItem"))
-        return static_cast< QGraphicsLayoutItem*>(const_cast< memory_card*>(this));
-    return QObject::qt_metacast(_clname);
+        return static_cast< QGraphicsLayoutItem*>(const_cast< MemoryCard*>(this));
+    if (!strcmp(_clname, "com.trolltech.Qt.QGraphicsLayoutItem"))
+        return static_cast< QGraphicsLayoutItem*>(const_cast< MemoryCard*>(this));
+    return QGraphicsObject::qt_metacast(_clname);
 }
 
-int memory_card::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
+int MemoryCard::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QObject::qt_metacall(_c, _id, _a);
+    _id = QGraphicsObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     }
 #ifndef QT_NO_PROPERTIES
       else if (_c == QMetaObject::ReadProperty) {
@@ -111,7 +120,7 @@ int memory_card::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     } else if (_c == QMetaObject::WriteProperty) {
         void *_v = _a[0];
         switch (_id) {
-        case 0: setrotationAngleY(*reinterpret_cast< qreal*>(_v)); break;
+        case 0: setRotationAngle(*reinterpret_cast< qreal*>(_v)); break;
         }
         _id -= 1;
     } else if (_c == QMetaObject::ResetProperty) {
@@ -132,21 +141,16 @@ int memory_card::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void memory_card::clicked()
+void MemoryCard::selected_change(int _t1, int _t2, bool _t3)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 
 // SIGNAL 1
-void memory_card::hovered(QRectF _t1)
+void MemoryCard::clicked(int _t1, int _t2)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
-}
-
-// SIGNAL 2
-void memory_card::hover_leave()
-{
-    QMetaObject::activate(this, &staticMetaObject, 2, 0);
 }
 QT_END_MOC_NAMESPACE

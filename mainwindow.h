@@ -3,6 +3,7 @@
 
 #include <QLabel>
 #include <QMainWindow>
+#include <QDebug>
 #include "memory_widget.h"
 #include "./include/field_implementation.h"
 

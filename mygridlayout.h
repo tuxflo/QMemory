@@ -2,7 +2,6 @@
 #define MYGRIDLAYOUT_H
 
 #include <QGraphicsGridLayout>
-#include "doubleside_card.h"
 
 class MyGridLayout : public QObject, public QGraphicsGridLayout
 {

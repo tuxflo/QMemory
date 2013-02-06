@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'qmemory_second_turn.h'
 **
-** Created: Thu Jan 24 11:07:16 2013
+** Created: Tue Feb 5 10:11:10 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_Qmemory_second_turn[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       2,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -32,12 +32,14 @@ static const uint qt_meta_data_Qmemory_second_turn[] = {
 
  // slots: signature, parameters, type, tag, flags
       21,   20,   20,   20, 0x0a,
+      33,   20,   20,   20, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Qmemory_second_turn[] = {
     "Qmemory_second_turn\0\0turn_back()\0"
+    "delete_effect()\0"
 };
 
 void Qmemory_second_turn::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,6 +49,7 @@ void Qmemory_second_turn::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         Qmemory_second_turn *_t = static_cast<Qmemory_second_turn *>(_o);
         switch (_id) {
         case 0: _t->turn_back(); break;
+        case 1: _t->delete_effect(); break;
         default: ;
         }
     }
@@ -87,9 +90,9 @@ int Qmemory_second_turn::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 2)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 2;
     }
     return _id;
 }
