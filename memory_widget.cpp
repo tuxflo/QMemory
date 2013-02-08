@@ -50,8 +50,8 @@ bool Memory_Widget::set_cards()
             _grid.addItem(_cards[i][j], i, j);
         }
     }
-    setMinimumHeight(rows * _cards[0][0]->get_size().width() + rows*40);
-    setMinimumWidth(columns * _cards[0][0]->get_size().height() + columns*40);
+    //setMinimumHeight(rows * _cards[0][0]->get_size().width() + rows*40);
+    //setMinimumWidth(columns * _cards[0][0]->get_size().height() + columns*40);
 
     return true;
 }
@@ -160,6 +160,19 @@ bool Memory_Widget::eventFilter(QObject *object, QEvent *event)
         return true;
     }
     return false;
+}
+
+void Memory_Widget::resizeEvent(QResizeEvent *event)
+{
+    qDebug() << "resizeEvent!" << "new size = " << size();
+    for(int i=0; i< _game->get_rows();i++)
+    {
+        for(int j=0; j< _game->get_columns(); j++)
+        {
+            _cards[i][j]->_size.setWidth(size().width()/6);
+            _cards[i][j]->_size.setHeight(size().height()/5);
+        }
+    }
 }
 
 void Memory_Widget::set_players()

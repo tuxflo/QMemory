@@ -40,18 +40,18 @@ void MainWindow::create_new_game()
         delete qmemory;
         delete game;
     }
-    game = new Field_Implementation(2, 4);
+    game = new Field_Implementation(5, 4);
     game->add_player("tuxflo");
     game->add_player("anne");
-    game->set_picture_path("./Pictures/");
-    game->set_cover_path("./Pictures/cover.png");
+    game->set_picture_path("./Pictures/Spanisch/");
+    game->set_cover_path("./Pictures/Spanisch/cover.png");
     qmemory = new Memory_Widget(game);
     //View *view = qmemory;
     game->set_view(qmemory);
     qmemory->play();
     setCentralWidget(qmemory);
-    qDebug() << "min width: " << qmemory->minimumWidth();
-    resize(qmemory->minimumWidth(), qmemory->minimumHeight());
+    //qDebug() << "min width: " << qmemory->minimumWidth();
+    //resize(qmemory->minimumWidth(), qmemory->minimumHeight());
 
     _points = new QLabel(this);
     QDockWidget *dock = new QDockWidget(this);

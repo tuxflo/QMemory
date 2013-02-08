@@ -35,6 +35,7 @@ public:
     bool eventFilter(QObject *object, QEvent *event);
 
 protected:
+    void resizeEvent(QResizeEvent *event);
 
 private:
     void set_players();

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'memory_widget.h'
 **
-** Created: Tue Feb 5 10:11:09 2013
+** Created: Thu Feb 7 14:10:47 2013
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!

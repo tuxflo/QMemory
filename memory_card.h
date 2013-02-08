@@ -8,6 +8,8 @@
 #include <QPropertyAnimation>
 #include <QGraphicsDropShadowEffect>
 #include <QGraphicsLayoutItem>
+#include <QGraphicsSvgItem>
+#include <QSvgRenderer>
 #include <QPainter>
 
 class MemoryCard : public QGraphicsObject, public QGraphicsLayoutItem
@@ -27,6 +29,7 @@ public:
     void set_duration(int duration);
     qreal rotationAngle() const;
     QGraphicsDropShadowEffect *_shadow;
+    QSize _size;
 
 
 
@@ -42,9 +45,12 @@ protected:
 private:
     int _row;
     int _column;
-    QPixmap _picture;
-    QPixmap _cover;
-    QPixmap *_pix;
+    QGraphicsSvgItem _picture;
+    QGraphicsSvgItem _cover;
+    QGraphicsSvgItem *_pix;
+    QSvgRenderer *_renderer;
+    QSvgRenderer *_renderer2;
+    QSvgRenderer *_p_renderer;
     QRectF boundingRect()const;
 
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);

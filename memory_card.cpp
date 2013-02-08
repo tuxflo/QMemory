@@ -3,15 +3,18 @@
 MemoryCard::MemoryCard(int row, int column, const std::string& picture_path, const std::string& cover_path, QObject *parent) :
     _row(row),
     _column(column),
+    _picture(picture_path.c_str()),
     _cover(cover_path.c_str()),
     _turned(false),
-    _duration(200)
+    _duration(200),
+    _size(100,100)
 
 {
     //Mirror the image for displaying right after turning
     QImage mirrored_image(picture_path.c_str());
     mirrored_image = mirrored_image.mirrored(true, false);
-    _picture = QPixmap::fromImage(mirrored_image);
+    //_picture = QPixmap::fromImage(mirrored_image);
+
 
 
     setFlag(QGraphicsItem::ItemIsSelectable);
@@ -28,6 +31,13 @@ MemoryCard::MemoryCard(int row, int column, const std::string& picture_path, con
 
     setGraphicsEffect(_shadow);
     setGraphicsItem(this);
+    //_picture.scale(100, 100);
+    //_cover.scale(100, 100);
+    _renderer2 = new QSvgRenderer(QString("/home/tuxflo/Pictures/Memory/border2.svg"), this);
+    _renderer = new QSvgRenderer(QString("/home/tuxflo/Pictures/Memory/cover.svg"), this);
+    _p_renderer = _renderer;
+
+
 }
 
 MemoryCard::MemoryCard(QObject *parent)
@@ -83,7 +93,8 @@ void MemoryCard::turn_back()
 
 QSize MemoryCard::get_size()
 {
-    return _cover.size();
+    //return _cover.size();
+    return _size;
 }
 
 void MemoryCard::set_duration(int duration)
@@ -133,9 +144,11 @@ QSizeF MemoryCard::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
 {
     switch (which) {
     case Qt::MinimumSize:
+        return QSize(50, 50);
     case Qt::PreferredSize:
         // Do not allow a size smaller than the pixmap with two frames around it.
-        return _cover.size() + QSize(12, 12);
+        //return _cover.size() + QSize(12, 12);
+        return _size + QSize(12,12);
     case Qt::MaximumSize:
         return QSizeF(1000,1000);
     default:
@@ -146,6 +159,8 @@ QSizeF MemoryCard::sizeHint(Qt::SizeHint which, const QSizeF &constraint) const
 
 void MemoryCard::setGeometry(const QRectF &rect)
 {
+    rect.setWidth(_size.width());
+    rect.setHeight(_size.height());
     prepareGeometryChange();
     QGraphicsLayoutItem::setGeometry(rect);
     setPos(rect.topLeft());
@@ -153,7 +168,8 @@ void MemoryCard::setGeometry(const QRectF &rect)
 
 QRectF MemoryCard::boundingRect() const
 {
-    return _cover.rect();
+    //return _cover.rect();
+    return QRectF(0, 0, _size.width(), _size.height());
 }
 
 
@@ -161,16 +177,20 @@ void MemoryCard::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 {
     Q_UNUSED(option)
     Q_UNUSED(widget)
-    painter->drawPixmap(0, 0, *_pix);
+    //painter->drawPixmap(0, 0, *_pix);
+    _p_renderer->render(painter, QRect(0,0, _size.width(), _size.height()));
+    //svg.render(painter, boundingRect());
 }
 
 
 void MemoryCard::paint_cover()
 {
     if(_turned)
-        _pix = &_picture;
+        //_pix = &_picture;
+        _p_renderer = _renderer2;
     else
-        _pix = &_cover;
+        //_pix = &_cover;
+        _p_renderer = _renderer;
 }
 
 void MemoryCard::set_selected(bool selected)
